@@ -1,5 +1,7 @@
 # SistGerDadosVendas2
 
+Projeto meramente didaticco, para a pratica em programação.
+
 Descrição
 
 Você está desenvolvendo um sistema para organizar vendas por categorias antes de gerar um relatório. O objetivo é criar uma classe Categoria que gerencie as vendas associadas a uma determinada categoria e calcule o total de vendas dessa categoria.
