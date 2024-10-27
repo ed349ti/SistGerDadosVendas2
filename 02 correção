@@ -1,0 +1,53 @@
+class Venda:
+    def __init__(self, produto, quantidade, valor):
+        self.produto = produto
+        self.quantidade = quantidade
+        self.valor = valor
+
+class Categoria:
+    def __init__(self, nome):
+        self.nome = nome
+        self.vendas = []
+
+    # Método para adicionar uma venda à lista de vendas
+    def adicionar_venda(self, venda):
+        self.vendas.append(venda)  # Adiciona o objeto Venda à lista de vendas da categoria
+
+    # Método para calcular o total das vendas na categoria
+    def total_vendas(self):
+        total = 0  # Variável para acumular o total
+        for venda in self.vendas:
+            total += venda.valor  # Soma o valor de cada venda
+        return total  # Retorna o valor total das vendas
+
+def main():
+    categorias = []
+
+    # Entrada das categorias e vendas
+    for i in range(2):
+        #nome_categoria = input("Digite o nome da categoria: ")
+        nome_categoria = input()
+        categoria = Categoria(nome_categoria)
+
+        # Entrada das vendas para a categoria atual
+        for j in range(2): 
+            #entrada_venda = input("Digite o produto, quantidade e valor (ex: ProdutoX, 2, 100.50): ")
+            entrada_venda = input()
+            produto, quantidade, valor = entrada_venda.split(',')
+            quantidade = int(quantidade.strip())
+            valor = float(valor.strip())
+
+            venda = Venda(produto.strip(), quantidade, valor)
+            categoria.adicionar_venda(venda)  # Adiciona a venda à categoria
+
+        categorias.append(categoria)  # Adiciona a categoria à lista de categorias
+    
+    # Exibindo o total de vendas para cada categoria
+    #print("\nTotal de Vendas por Categoria:")
+    for categoria in categorias:
+        total = categoria.total_vendas()
+        #print("Vendas em " + (f"{categoria.nome}: {total:.2f}"))
+        #correção abaixo 
+        print(f"Vendas em {categoria.nome}: {categoria.total_vendas():.1f}")
+if __name__ == "__main__":
+    main()
